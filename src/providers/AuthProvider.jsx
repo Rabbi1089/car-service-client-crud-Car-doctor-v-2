@@ -34,13 +34,13 @@ const AuthProvider = ({ children }) => {
             const loggedUser = {email : userEmail}
             setLoading(false);
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', loggedUser, {withCredentials: true})
+                axios.post('car-service-server-blue.vercel.app/jwt', loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log(res.data);
                   })
             }
             else {
-                axios.post('http://localhost:5000/logout' , loggedUser, {withCredentials: true})
+                axios.post('car-service-server-blue.vercel.app/logout' , loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log(res.data);
                   })
@@ -66,6 +66,7 @@ const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
+    
 };
 
 export default AuthProvider;
